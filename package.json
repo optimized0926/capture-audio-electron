@@ -1,0 +1,51 @@
+{
+  "name": "@youngerheart/electron-recorder",
+  "version": "0.0.0-beta.14",
+  "description": "a simple screen recorder for electron, be used to cupture video for screen/window and audio for desktop/mic, support win/mac",
+  "main": "dist/index.js",
+  "scripts": {
+    "dev": "webpack-dev-server --hot --inline",
+    "build": "webpack --mode=production --progress",
+    "autoFix": "eslint --fix",
+    "deploy": "npm run build && npm publish"
+  },
+  "files": [
+    "src/*",
+    "dist/*"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/youngerheart/electron-recorder.git"
+  },
+  "author": "youngerheart",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/youngerheart/electron-recorder/issues"
+  },
+  "homepage": "https://github.com/youngerheart/electron-recorder#readme",
+  "devDependencies": {
+    "@babel/core": "^7.12.3",
+    "@babel/plugin-transform-runtime": "^7.12.1",
+    "@babel/preset-env": "^7.12.1",
+    "babel-eslint": "^10.1.0",
+    "babel-loader": "^8.1.0",
+    "compression-webpack-plugin": "^6.0.4",
+    "eslint": "^6.7.2",
+    "husky": "^4.3.0",
+    "lint-staged": "^10.5.0",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{js,vue}": [
+      "npm run autoFix -c --config .eslintrc.js",
+      "git add"
+    ]
+  }
+}
